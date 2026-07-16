@@ -40,5 +40,7 @@ print("Null Count After Cleaning : ", df["CouponCode"].isna().sum())
 # Remove Unnecessary Spaces from Text Columns
 for col in df.select_dtypes(include="str"):
     df[col] = df[col].str.strip()
-    
 
+# Save Cleaned Dataset
+df.to_excel("data/cleaned/cleaned_dataset.xlsx", index=False)
+print("Cleaned dataset saved successfully.")
