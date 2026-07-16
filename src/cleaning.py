@@ -35,4 +35,10 @@ print(df.describe())
 df["CouponCode"] = df["CouponCode"].fillna("No Coupon")
 
 # Checking Null Values After Cleaning
-print(df["CouponCode"].isna().sum())
+print("Null Count After Cleaning : ", df["CouponCode"].isna().sum())
+
+# Remove Unnecessary Spaces from Text Columns
+for col in df.select_dtypes(include="str"):
+    df[col] = df[col].str.strip()
+    
+
