@@ -24,9 +24,15 @@ categorical_columns = [
     "ReferralSource"
 ]
 
-for col in categorical_columns:
-    print(f"\nUnique values in {col}:")
-    print(df[col].unique())
+for i in categorical_columns:
+    print(f"\nUnique values in {i}:")
+    print(df[i].unique())
 
 # Check Numerical Columns
 print(df.describe())
+
+# Handling Null Values
+df["CouponCode"] = df["CouponCode"].fillna("No Coupon")
+
+# Checking Null Values After Cleaning
+print(df["CouponCode"].isna().sum())
